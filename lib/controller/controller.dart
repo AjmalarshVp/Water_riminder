@@ -15,6 +15,7 @@ class Controller extends GetxController {
    changeWieght(int value) {
     weight = value;
     update();
+    
   }
   changeIsNest(bool value) {
     print('.....................$value');

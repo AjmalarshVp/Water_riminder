@@ -61,7 +61,7 @@ class _Custum_st_columState extends State<Custum_st_colum> {
               style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
             ),
             Text(
-              widget.LeadingText,
+              (widget.LeadingText).toString(),
               style: const TextStyle(
                   color: Color.fromARGB(255, 5, 146, 247),
                   fontWeight: FontWeight.bold,

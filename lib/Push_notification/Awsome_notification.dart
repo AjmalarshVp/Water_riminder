@@ -9,7 +9,7 @@ Future<void>create_notify() async {
       id: 0,
       channelKey: 'basic_channel',
       title: "Drink water",
-      body: "this is podaaa",
+      body: "YOUR TIME TO DRINK WATER",
       bigPicture: 'asset://assets/paper-coffee-cup-removebg-preview.jpg',
       notificationLayout:NotificationLayout.BigPicture
     ),

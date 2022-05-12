@@ -8,6 +8,7 @@ import 'package:water_reminder/Push_notification/Awsome_notification.dart';
 
 
 import 'package:water_reminder/model/model.dart';
+double _value = 0;
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double _value = 0;
+
  // List<DateTime> date = [];
   final box = Hive.box<Detailsmodel>('details');
   List<Detailsmodel> details = [];
@@ -161,9 +162,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(
                           height: 40,
                         ),
+                        
                         const Text.rich(
+                          
                           TextSpan(
-                              text: '200 ',
+                              text:"200",
                               style: const TextStyle(
                                   color: Colors.lightBlueAccent, fontSize: 31),
                               children: <InlineSpan>[
@@ -208,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
 
                         Text(
-                          " ${details.last.value * 10}",
+                          " ${_value * 10}",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),

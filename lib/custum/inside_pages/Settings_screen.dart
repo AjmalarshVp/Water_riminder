@@ -2,7 +2,12 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+
 import 'package:water_reminder/custum/inside_pages/custum/custum_insideScreen.dart';
+
+import '../../controller/controller.dart';
 
 class SettingScreen extends StatefulWidget {
   SettingScreen({Key? key}) : super(key: key);
@@ -12,41 +17,46 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
+  final Controller _controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left:18,right: 18,bottom: 18),
-      child: ListView(
-        children: [
-          Headingpart(
-            "Reminder settings",
-          ),
-          SizedBox(
-            height: 0,
-          ),
-          Custum_st_colum(
-            Heading: "Reminder schedule",
-           LeadingText: "",
-           hieght: 20,
-          ),
-          Custum_st_colum(
-            Heading: "Reminder sound",
-            LeadingText: "",
-             hieght: 20,
-            
-          ),
-          Custum_st_colum(
-            Heading: "Reminder mode",
-            LeadingText: "As device settings",
-             hieght: 22,
-     
-          ),
-          Custum_st_colum(
-            Heading: "Further reminder",
-            LeadingText: "",
-            
+      child: GetBuilder<Controller>(
+        builder: (_) {
+          return ListView(
+              children: [
+                Headingpart(
+                  "Reminder settings",
+                ),
+                SizedBox(
+                  height: 0,
+                ),
+                Custum_st_colum(
+                  Heading: "Reminder schedule",
+                 LeadingText: "",
+                 hieght: 20,
+                ),
+                Custum_st_colum(
+                  Heading: "Reminder sound",
+                  LeadingText: "",
+                   hieght: 20,
+                  
+                ),
+                Custum_st_colum(
+                  Heading: "Reminder mode",
+                  LeadingText: "As device settings",
+                   hieght: 22,
+           
+                ),
+                Custum_st_colum(
+                  Heading: "Further reminder",
+                  LeadingText: "" ) ,
+                  
+                
           
-          ),
+       
+        
           Subtitle(SubtitleText: "Still remind when your goal is achived"),
            Headingpart(
             "General",
@@ -86,25 +96,27 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
           Custum_st_colum(
             Heading: "Gender",
-            LeadingText: "Male",
+            LeadingText:_controller.genter,
              hieght: 20,
            
           ),
           Custum_st_colum(
             Heading: "Wieght",
-        LeadingText: "",
+        LeadingText: "70Kg",
          hieght: 20,
            
           ),
           Custum_st_colum(
             Heading: "Wake-up time",
-            LeadingText: "06:00 am",
+            LeadingText:DateFormat('h:mm a')
+                                    .format(_controller.wakeUp), 
              hieght: 20,
            
           ),
           Custum_st_colum(
             Heading: "Bed time",
-            LeadingText: "10:00pm",
+            LeadingText:DateFormat('h:mm a')
+                                    .format(_controller.bedtime),
              hieght: 20,
            
           ),
@@ -134,7 +146,7 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
            Custum_st_colum(
             Heading: "Share",
-            LeadingText: "70kg",
+            LeadingText: "",
              hieght: 20,
            
           ),
@@ -144,8 +156,11 @@ class _SettingScreenState extends State<SettingScreen> {
              hieght: 20,
            
           ),
-        ],
-      ),
+        ]
+      );
+      
+        },
+),
     );
   }
 }
